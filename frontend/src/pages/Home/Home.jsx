@@ -169,46 +169,50 @@ function Home() {
                 ))}
               </div>
             )}
+          </div>
+        </div>
       </section>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={includeAdult}
-            onChange={() => setIncludeAdult((v) => !v)}
-          />{' '}
-          Inclure films pour adultes
-        </label>
+      <div className="filters">
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={includeAdult}
+              onChange={() => setIncludeAdult((v) => !v)}
+            />{' '}
+            Inclure films pour adultes
+          </label>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={selecPerso}
-            onChange={() => setSelecPerso((v) => !v)}
-          />{' '}
-          Utiliser recommandation personnalisée
-        </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={selecPerso}
+              onChange={() => setSelecPerso((v) => !v)}
+            />{' '}
+            Utiliser recommandation personnalisée
+          </label>
 
-        <select
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-          disabled={loading}
-        >
-          <option value="popularity">Popularité</option>
-          <option value="release_date">Date de sortie</option>
-          <option value="vote_average">Note moyenne</option>
-          <option value="title">Titre (alphabétique)</option>
-        </select>
+          <select
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+            disabled={loading}
+          >
+            <option value="popularity">Popularité</option>
+            <option value="release_date">Date de sortie</option>
+            <option value="vote_average">Note moyenne</option>
+            <option value="title">Titre (alphabétique)</option>
+          </select>
 
-        <select
-          value={sortDirection}
-          onChange={(e) => setSortDirection(e.target.value)}
-          disabled={loading}
-        >
-          <option value="desc">Descendant</option>
-          <option value="asc">Ascendant</option>
-        </select>
-      </div>
+          <select
+            value={sortDirection}
+            onChange={(e) => setSortDirection(e.target.value)}
+            disabled={loading}
+          >
+            <option value="desc">Descendant</option>
+            <option value="asc">Ascendant</option>
+          </select>
+        </div>
 
       <section className="movie-list">
         {loading && <div>Chargement des films...</div>}
