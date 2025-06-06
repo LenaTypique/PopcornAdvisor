@@ -139,32 +139,37 @@ function Home() {
 
   return (
     <>
-      <h2>Home</h2>
-
-      <div className="filters">
-        <input
-          placeholder="Rechercher un film..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          disabled={loading}
-        />
-        <button onClick={() => setShowGenres((v) => !v)}>
-          {showGenres ? 'Masquer les genres' : 'Afficher les genres'}
-        </button>
-        {showGenres && (
-          <div className="genres">
-            {genresList.map((g) => (
-              <label key={g.id}>
-                <input
-                  type="checkbox"
-                  checked={selectedGenres.includes(g.id)}
-                  onChange={() => toggleGenre(g.id)}
-                />
-                {g.name}
-              </label>
-            ))}
-          </div>
-        )}
+      <header className="App-header">
+        <h1>Bienvenue, que souhaitez vous regarder ?</h1>
+      </header>
+      <section className="search-section">
+        <div className="search-bar-container">
+          <input
+            placeholder="Rechercher un film..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            disabled={loading}
+          />
+          <div className="genre-dropdown">
+            <button 
+              className = "genre-toggle"
+              onClick={() => setShowGenres((v) => !v)}>
+            </button>
+            {showGenres && (
+              <div className="genres">
+                {genresList.map((g) => (
+                  <label key={g.id}>
+                    <input
+                      type="checkbox"
+                      checked={selectedGenres.includes(g.id)}
+                      onChange={() => toggleGenre(g.id)}
+                    />
+                    {g.name}
+                  </label>
+                ))}
+              </div>
+            )}
+      </section>
 
         <label>
           <input
